@@ -43,9 +43,14 @@ public class RegistrationController {
             return "register";
         }
 
-        registrationBusinessService.registerUser(userModel);
+        boolean registered = registrationBusinessService.registerUser(userModel);
 
-        model.addAttribute("successMessage", "Registration successful. You can now log in with admin / password.");
+        if (!registered) {
+            model.addAttribute("registerError", "Username already exists. Please choose another username.");
+            return "register";
+        }
+
+        model.addAttribute("successMessage", "Registration successful. You can now log in.");
         model.addAttribute("loginModel", new LoginModel());
 
         return "login";

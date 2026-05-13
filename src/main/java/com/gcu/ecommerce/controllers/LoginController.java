@@ -44,7 +44,7 @@ public class LoginController {
         }
 
         if (!loginBusinessService.authenticate(loginModel)) {
-            model.addAttribute("loginError", "Invalid username or password. Try admin / password.");
+            model.addAttribute("loginError", "Invalid username or password.");
             return "login";
         }
 

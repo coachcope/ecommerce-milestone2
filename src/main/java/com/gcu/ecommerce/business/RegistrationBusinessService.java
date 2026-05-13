@@ -6,18 +6,27 @@ import com.gcu.ecommerce.models.UserModel;
 
 /**
  * RegistrationBusinessService handles registration business logic.
- * registration is validated but not saved to a database.
+ * registration is validated Milestone 4 with database.
  */
+
+import com.gcu.ecommerce.data.UserDAO;
+import com.gcu.ecommerce.models.UserModel;
+
 @Service
 public class RegistrationBusinessService {
 
-    /**
-     * Simulates user registration.
-     *
-     * @param userModel registration form data
-     * @return true if the user data is accepted
-     */
+    private final UserDAO userDAO;
+
+    public RegistrationBusinessService(UserDAO userDAO) {
+        this.userDAO = userDAO;
+    }
+
     public boolean registerUser(UserModel userModel) {
-        return userModel != null;
+        if (userDAO.usernameExists(userModel.getUsername())) {
+            return false;
+        }
+
+        userDAO.create(userModel);
+        return true;
     }
 }
