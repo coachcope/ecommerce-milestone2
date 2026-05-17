@@ -2,17 +2,12 @@ package com.gcu.ecommerce.business;
 
 import org.springframework.stereotype.Service;
 
-import com.gcu.ecommerce.models.LoginModel;
-
-/**
- * LoginBusinessService handles login business logic.
- * For Milestone 4 database
- */
 import com.gcu.ecommerce.data.UserDAO;
 import com.gcu.ecommerce.models.LoginModel;
 
 @Service
 public class LoginBusinessService {
+
 
     private final UserDAO userDAO;
 
@@ -22,4 +17,4 @@ public class LoginBusinessService {
 
     public boolean authenticate(LoginModel loginModel) {
         return userDAO.authenticate(loginModel);
-    }
+    }}

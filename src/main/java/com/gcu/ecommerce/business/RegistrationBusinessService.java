@@ -2,6 +2,7 @@ package com.gcu.ecommerce.business;
 
 import org.springframework.stereotype.Service;
 
+import com.gcu.ecommerce.data.UserDAO;
 import com.gcu.ecommerce.models.UserModel;
 
 /**
@@ -9,8 +10,6 @@ import com.gcu.ecommerce.models.UserModel;
  * registration is validated Milestone 4 with database.
  */
 
-import com.gcu.ecommerce.data.UserDAO;
-import com.gcu.ecommerce.models.UserModel;
 
 @Service
 public class RegistrationBusinessService {
